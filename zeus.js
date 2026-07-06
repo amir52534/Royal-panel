@@ -301,7 +301,8 @@ const Router = {
 					currentAccountId = accData.result[0].id;
 				}
 
-				const githubRes = await fetch("https://raw.githubusercontent.com/IR-NETLIFY/zeus/refs/heads/main/zeus.js?t=" + Date.now() + Math.random(), {
+				// >>> استفاده از مخزن جدید Royal-panel
+				const githubRes = await fetch("https://raw.githubusercontent.com/amir52534/Royal-panel/refs/heads/main/zeus.js?t=" + Date.now() + Math.random(), {
 					headers: {
 						"Cache-Control": "no-cache, no-store, must-revalidate",
 						Pragma: "no-cache",
@@ -356,7 +357,7 @@ const Router = {
 
 				return new Response(JSON.stringify({ success: true }), { headers: { "Content-Type": "application/json" } });
 			} catch (err) {
-				const errorMsg = err.message + " | در صورت عدم موفقیت، از طریق لینک زیر آپدیت کنید: https://zeus-panel.ir-netlify.workers.dev/";
+				const errorMsg = err.message + " | در صورت عدم موفقیت، از طریق لینک زیر آپدیت کنید: https://royal-gateway.workers.dev/";
 				return new Response(JSON.stringify({ error: errorMsg }), { status: 500, headers: { "Content-Type": "application/json" } });
 			}
 		}
@@ -370,7 +371,8 @@ const Router = {
 			}
 
 			try {
-				const githubRes = await fetch("https://raw.githubusercontent.com/IR-NETLIFY/zeus/refs/heads/main/zeus.js?t=" + Date.now(), {
+				// >>> استفاده از مخزن جدید Royal-panel
+				const githubRes = await fetch("https://raw.githubusercontent.com/amir52534/Royal-panel/refs/heads/main/zeus.js?t=" + Date.now(), {
 					headers: {
 						"Cache-Control": "no-cache, no-store, must-revalidate",
 						Pragma: "no-cache",
@@ -2066,7 +2068,10 @@ function trackRequest(env, ctx) {
 	}
 }
 
-// HTML_TEMPLATES with Royal Gateway theming (dark amber/orange)
+// ============================================================
+// HTML_TEMPLATES با تم Royal Gateway (نارنجی-زرد-سیاه)
+// ============================================================
+
 const HTML_TEMPLATES = {
 	nginx: `<!DOCTYPE html>
 <html lang="fa" dir="rtl" class="dark">
@@ -2079,6 +2084,8 @@ const HTML_TEMPLATES = {
 	<style>
 		body { font-family: 'Vazirmatn', sans-serif; background: #0a0502; }
 		.glass-royal { background: rgba(20,10,4,0.8); backdrop-filter: blur(14px); border: 1px solid rgba(255,160,50,0.2); }
+		.btn-royal { background: linear-gradient(145deg, #4a1f0a, #2a1205); border: 1px solid #f59e0b; color: #fbbf24; transition: all 0.25s; }
+		.btn-royal:hover { background: linear-gradient(145deg, #5f2a10, #3a1a08); border-color: #fbbf24; box-shadow: 0 0 25px rgba(245,158,11,0.2); }
 	</style>
 </head>
 <body class="min-h-screen flex items-center justify-center p-4" style="background: radial-gradient(circle at 30% 20%, #2b1408, #0a0502 80%);">
